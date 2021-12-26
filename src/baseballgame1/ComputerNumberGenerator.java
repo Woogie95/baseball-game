@@ -1,3 +1,5 @@
+package baseballgame1;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -9,7 +11,6 @@ public class ComputerNumberGenerator {
     public static Set<Integer> temporaryNumber = new LinkedHashSet<>();
 
     public static List<Integer> temporaryComputerNumber() {
-
         while (temporaryNumber.size() != 3) {
             temporaryNumber.add((int) (Math.random() * FIXED_NUMBER_COUNT) + INTEGER_CHANGE);
         }
