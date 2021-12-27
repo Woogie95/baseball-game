@@ -10,9 +10,9 @@ public class UserNumberGenerator {
 
     public static List<Integer> userNumber = new ArrayList<>();
 
-    public static void userNumberCreator(int input, List<Integer> computerRandomNumber) {
+    public static void userNumberCreator(List<Integer> computerRandomNumber) {
         for (int i = 0; i < 3; i++) {
-            userNumber.add(input);
+            userNumber.add(Input.inputNumber());
             if (computerRandomNumber.contains(userNumber.get(i))) {
                 if (computerRandomNumber.get(i).equals(userNumber.get(i))) {
                     strike++;

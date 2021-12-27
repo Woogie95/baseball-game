@@ -6,8 +6,6 @@ public class CenterProcess {
     public static List<Integer> computerRandomNumber = ComputerNumberGenerator.temporaryComputerNumber();
 
     public static void repeatBaseball() {
-        int input = Input.inputNumber();
-        UserNumberGenerator.userNumberCreator(input, computerRandomNumber);
         GameRestart gameRestart = new GameRestart();
         ScoreCompare scoreCompare = new ScoreCompare();
         GameRestartCheck gameRestartCheck = new GameRestartCheck();
@@ -22,6 +20,7 @@ public class CenterProcess {
                 }
                 Output.lineChange();
                 Output.inputNumberMessage();
+                UserNumberGenerator.userNumberCreator(computerRandomNumber);
 
                 int strike = UserNumberGenerator.strike;
                 int ball = UserNumberGenerator.ball;

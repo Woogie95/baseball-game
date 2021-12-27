@@ -6,15 +6,13 @@ public class GameRestart {
         return true;
     }
 
-    public boolean baseballFinish() {
-        return false;
+    public void baseballFinish() {
     }
 
     public boolean randomNumberContinue() {
         return true;
     }
 
-    public boolean randomNumberBreak() {
-        return false;
+    public void randomNumberBreak() {
     }
 }
