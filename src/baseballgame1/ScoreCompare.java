@@ -3,20 +3,19 @@ package baseballgame1;
 public class ScoreCompare {
 
     public static final int STANDARD = 0;
-    public int strikeCount = UserNumberGenerator.strike;
-    public int ballCount = UserNumberGenerator.ball;
 
-    public void compare(int strikeCount, int ballCount) {
-        if (strikeCount == STANDARD && ballCount == STANDARD) {
+    public void compare(int strike, int ball) {
+
+        if (strike == STANDARD && ball == STANDARD) {
             Output.countNone();
         }
-        if (strikeCount > STANDARD && ballCount == STANDARD) {
-            Output.strikeCount(strikeCount);
-        } else if (strikeCount == STANDARD && ballCount > STANDARD) {
-            Output.ballCount(ballCount);
+        if (strike > STANDARD && ball == STANDARD) {
+            Output.strikeCount(strike);
+        } else if (strike == STANDARD && ball > STANDARD) {
+            Output.ballCount(ball);
         }
-        if (strikeCount > STANDARD && ballCount > STANDARD) {
-            Output.countPrint(strikeCount, ballCount);
+        if (strike > STANDARD && ball > STANDARD) {
+            Output.countPrint(strike, ball);
         }
     }
 }

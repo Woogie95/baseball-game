@@ -1,33 +1,38 @@
 package baseballgame1;
 
-import java.util.List;
-
 public class CenterProcess {
-    public static List<Integer> computerRandomNumber = ComputerNumberGenerator.temporaryComputerNumber();
 
-    public static void repeatBaseball() {
-        GameRestart gameRestart = new GameRestart();
-        ScoreCompare scoreCompare = new ScoreCompare();
-        GameRestartCheck gameRestartCheck = new GameRestartCheck();
+    public boolean replay = true;
+    public boolean newGame = true;
+    public ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
+    public UserNumber userNumber = new UserNumber();
 
-        gameRestart.baseballRestart();
-        while (gameRestart.baseballRestart()) {
-            gameRestart.randomNumberContinue();
+    public void repeatBaseball() {
 
-            while (gameRestart.randomNumberContinue()) {
-                for (int a : computerRandomNumber) {
+        while (replay) {
+            newGame = true;
+            computerRandomNumber.computerNumberGenerator();
+            userNumber.userNumberGenerator();
+
+            while (newGame) {
+                for (int a : computerRandomNumber.computerNumberGenerator())
                     System.out.print(a + " ");
-                }
-                Output.lineChange();
-                Output.inputNumberMessage();
-                UserNumberGenerator.userNumberCreator(computerRandomNumber);
-
-                int strike = UserNumberGenerator.strike;
-                int ball = UserNumberGenerator.ball;
-
-                scoreCompare.compare(strike, ball);
-                gameRestartCheck.restartCheck(strike);
             }
+            Output.lineChange();
+            Output.inputNumberMessage();
+
+            NumberCheck numberCheck = new NumberCheck();
+            numberCheck.numberCompare(computerRandomNumber.computerNumberGenerator(), userNumber.userNumberGenerator());
+            ScoreCompare scoreCompare = new ScoreCompare();
+            scoreCompare.compare(numberCheck.getStrike(), numberCheck.getBall());
+            GameRestartCheck gameRestartCheck = new GameRestartCheck();
+            gameRestartCheck.restartCheck(numberCheck.getStrike());
+
         }
+    }
+
+    public void clear() {
+        computerRandomNumber.computerNumberGenerator().clear();
+        userNumber.userNumberGenerator().clear();
     }
 }
