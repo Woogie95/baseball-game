@@ -9,8 +9,4 @@ public class Input {
     public static int inputNumber() { // 숫자 입력
         return SCANNER.nextInt();
     }
-
-    public static int newGame() { // 재시작 여부 숫자 입력
-        return SCANNER.nextInt();
-    }
 }

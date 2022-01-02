@@ -4,8 +4,13 @@ import java.util.List;
 
 public class NumberCheck {
 
-    public int strike;
-    public int ball;
+    private int strike;
+    private int ball;
+
+    public NumberCheck() {
+        this.strike = 0;
+        this.ball = 0;
+    }
 
     public void numberCompare(List<Integer> computerNumber, List<Integer> userNumber) {
         for (int i = 0; i < 3; i++) {
