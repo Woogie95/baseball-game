@@ -5,7 +5,6 @@ public class ScoreCompare {
     public static final int STANDARD = 0;
 
     public void compare(int strike, int ball) {
-
         if (strike == STANDARD && ball == STANDARD) {
             Output.countNone();
         }
@@ -18,4 +17,5 @@ public class ScoreCompare {
             Output.countPrint(strike, ball);
         }
     }
+
 }
