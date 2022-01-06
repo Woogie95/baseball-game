@@ -4,11 +4,11 @@ import java.util.List;
 
 public class CenterProcess {
 
-    private final Output output = new Output();
-    private boolean replay = true;
-    private boolean newGame = true;
     public static final int MAX_VALUE = 3;
     public ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
+    private static final Output output = new Output();
+    private boolean replay = true;
+    private boolean newGame = true;
 
     public void repeatBaseball() {
         while (replay) {
@@ -30,13 +30,13 @@ public class CenterProcess {
 
     }
 
-    public void deliverCompareValue(int strike, int ball) {
+    private void deliverCompareValue(int strike, int ball) {
         ScoreCompare scoreCompare = new ScoreCompare();
         scoreCompare.compare(strike, ball, new Output());
 
     }
 
-    public void restartCheck(int strike) {
+    private void restartCheck(int strike) {
         GameRestartCheck gameRestartCheck = new GameRestartCheck();
         if (strike == MAX_VALUE) {
             output.printGameOverMessage();

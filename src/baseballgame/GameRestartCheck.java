@@ -2,7 +2,7 @@ package baseballgame;
 
 public class GameRestartCheck {
 
-    public final static int CONTINUE_DECISION_NUMBER = 1;
+    private final static int CONTINUE_DECISION_NUMBER = 1;
 
     public boolean restartCheck() {
         Input input = new Input();
