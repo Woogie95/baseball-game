@@ -5,16 +5,17 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import static baseballgame.CenterProcess.MAX_VALUE;
+
 public class ComputerRandomNumber { //컴퓨터 랜던 숫자 생성 클래스
 
-    public static final int FIXED_NUMBER_COUNT = 9;
-    public static final int INTEGER_CHANGE = 1;
-    public static final int MAX_RANDOM_VALUE = 3;
+    public static final int MAX_RANDOM_NUMBER = 9;
+    public static final int CHANGE_TO_INTEGER = 1;
 
     public List<Integer> computerNumberGenerator() {
         Set<Integer> temporaryNumber = new LinkedHashSet<>();
-        while (temporaryNumber.size() != MAX_RANDOM_VALUE) {
-            temporaryNumber.add((int) (Math.random() * FIXED_NUMBER_COUNT) + INTEGER_CHANGE);
+        while (temporaryNumber.size() != MAX_VALUE) {
+            temporaryNumber.add((int) (Math.random() * MAX_RANDOM_NUMBER) + CHANGE_TO_INTEGER);
         }
         return new ArrayList<>(temporaryNumber);
     }

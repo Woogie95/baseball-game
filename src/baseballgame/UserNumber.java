@@ -2,14 +2,19 @@ package baseballgame;
 
 import java.util.ArrayList;
 import java.util.List;
+import static baseballgame.CenterProcess.MAX_VALUE;
+
 
 public class UserNumber {
+    public static final int DEFAULT = 0;
 
-    public List<Integer> userNumberGenerator() { //유저가 숫자 입력하면 한개씩 리스트에 넣어서 리턴해서 센터 프로세서줘
+    public List<Integer> userNumberGenerator() {
         List<Integer> userNumber = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            userNumber.add(Input.inputNumber());
+        Input input = new Input();
+        for (int i = DEFAULT; i < MAX_VALUE; i++) {
+            userNumber.add(input.inputNumber());
         }
         return userNumber;
     }
+
 }

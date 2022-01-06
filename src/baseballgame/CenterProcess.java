@@ -4,44 +4,44 @@ import java.util.List;
 
 public class CenterProcess {
 
+    private final Output output = new Output();
+    private boolean replay = true;
+    private boolean newGame = true;
+    public static final int MAX_VALUE = 3;
+    public ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
+
     public void repeatBaseball() {
-        ScoreCompare scoreCompare = new ScoreCompare();
-        boolean replay = true;
         while (replay) {
-            boolean newGame = true;
-
-
-            ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
-            List<Integer> list = computerRandomNumber.computerNumberGenerator();
-
-
+            newGame = true;
+            List<Integer> computerNumber = computerRandomNumber.computerNumberGenerator();
             UserNumber userNumber = new UserNumber();
-
-
             while (newGame) {
-                for (int a : list) {
-                    System.out.print(a + " ");
-                }
-
-
-                Output.lineChange();
-                Output.inputNumberMessage();
-
-                //sdfkfsdkk
+                printNotice();
                 NumberCheck numberCheck = new NumberCheck();
-                numberCheck.numberCompare(list, userNumber.userNumberGenerator());
-
-                //sdkdsfkkd
-                scoreCompare.compare(numberCheck.getStrike(), numberCheck.getBall());
-                GameRestartCheck gameRestartCheck = new GameRestartCheck();
-
-
-                if (numberCheck.getStrike() == 3) {
-                    Output.gameOverMessage();
-                    newGame = false;
-                    replay = gameRestartCheck.restartCheck();
-                }
+                numberCheck.compareNumber(computerNumber, userNumber.userNumberGenerator());
+                deliverCompareValue(numberCheck.getStrike(), numberCheck.getBall());
+                restartCheck(numberCheck.getStrike());
             }
+        }
+    }
+
+    private void printNotice() {
+        output.printNumberInputMessage();
+
+    }
+
+    public void deliverCompareValue(int strike, int ball) {
+        ScoreCompare scoreCompare = new ScoreCompare();
+        scoreCompare.compare(strike, ball, new Output());
+
+    }
+
+    public void restartCheck(int strike) {
+        GameRestartCheck gameRestartCheck = new GameRestartCheck();
+        if (strike == MAX_VALUE) {
+            output.printGameOverMessage();
+            newGame = false;
+            replay = gameRestartCheck.restartCheck();
         }
     }
 
