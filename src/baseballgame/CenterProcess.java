@@ -5,6 +5,7 @@ import java.util.List;
 public class CenterProcess {
 
     public static final int MAX_VALUE = 3;
+
     public ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
     private static final Output output = new Output();
     private boolean replay = true;
