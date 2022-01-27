@@ -6,20 +6,19 @@ public class CenterProcess {
 
     public static final int MAX_VALUE = 3;
 
-    public ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
-    private static final Output output = new Output();
     private boolean replay = true;
     private boolean newGame = true;
 
-    public void repeatBaseball() {
+    public void repeatBaseballGame() {
+        ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
         while (replay) {
             newGame = true;
-            List<Integer> computerNumber = computerRandomNumber.computerNumberGenerator();
+            List<Integer> computerNumber = computerRandomNumber.makeComputerNumber();
             UserNumber userNumber = new UserNumber();
             while (newGame) {
                 printNotice();
                 NumberCheck numberCheck = new NumberCheck();
-                numberCheck.compareNumber(computerNumber, userNumber.userNumberGenerator());
+                numberCheck.compareNumber(computerNumber, userNumber.makeUserNumber());
                 deliverCompareValue(numberCheck.getStrike(), numberCheck.getBall());
                 restartCheck(numberCheck.getStrike());
             }
@@ -27,20 +26,20 @@ public class CenterProcess {
     }
 
     private void printNotice() {
-        output.printNumberInputMessage();
+        Output.printNumberInputMessage();
 
     }
 
     private void deliverCompareValue(int strike, int ball) {
         ScoreCompare scoreCompare = new ScoreCompare();
-        scoreCompare.compare(strike, ball, new Output());
+        scoreCompare.compare(strike, ball);
 
     }
 
     private void restartCheck(int strike) {
         GameRestartCheck gameRestartCheck = new GameRestartCheck();
         if (strike == MAX_VALUE) {
-            output.printGameOverMessage();
+            Output.printGameOverMessage();
             newGame = false;
             replay = gameRestartCheck.restartCheck();
         }
