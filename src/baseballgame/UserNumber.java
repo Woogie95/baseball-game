@@ -5,7 +5,6 @@ import java.util.List;
 
 import static baseballgame.CenterProcess.MAX_VALUE;
 
-
 public class UserNumber {
 
     public static final int DEFAULT = 0; // DEFAULT 값 공용으로 사용하기 위해 public
@@ -13,38 +12,27 @@ public class UserNumber {
     public List<Integer> makeUserNumber() {
         List<Integer> userNumber = new ArrayList<>();
         Input input = new Input();
-        int[] num = new int[3];
-        char[] chArr = input.inputNumber().toCharArray();
-        for (int i = 0; i < num.length; i++) {
-            num[i] = chArr[i];
-        }
-        exceptionInspectTest(num);
+        int[] number = changeText(input.inputNumber());
+
         for (int i = DEFAULT; i < MAX_VALUE; i++) {
-            userNumber.add(num[i]);
+            userNumber.add(number[i]);
         }
         return userNumber;
     }
 
-    private void exceptionInspectTest(int[] num) {
-        inspectNumber(num);
-        inspectMinusNumber(num);
-
-    }
-
-    private void inspectNumber(int[] num) {
-        for (int i : num) {
-            if (i < 0) {
-                throw new IllegalArgumentException("숫자가 음수 입니다.");
+    private int[] changeText(String word) {
+        String[] textArr = new String[3];
+        int[] changeArr = new int[3];
+        try {
+            for (int i = 0; i < word.length(); i++) {
+                textArr[i] = String.valueOf(word.charAt(i));
             }
-        }
-    }
-
-    private void inspectMinusNumber(int[] num) {
-        for (int i : num) {
-            if (i % 2 != 0 && i % 2 != 1) {
-                throw new IllegalArgumentException("숫자가 아닙니다.");
+            for (int i = 0; i < word.length(); i++) { // 문자라서 안들어온거
+                changeArr[i] = Integer.parseInt(textArr[i]);
             }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("숫자가 아닙니다.");
         }
+        return changeArr;
     }
-
 }
