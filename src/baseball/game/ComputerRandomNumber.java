@@ -1,11 +1,11 @@
-package baseballgame;
+package baseball.game;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import static baseballgame.CenterProcess.MAX_VALUE;
+import static baseball.game.CenterProcess.MAX_VALUE;
 
 public class ComputerRandomNumber { //컴퓨터 랜던 숫자 생성 클래스
 

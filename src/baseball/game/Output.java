@@ -1,4 +1,4 @@
-package baseballgame;
+package baseball.game;
 
 public class Output {
     public static void printNumberInputMessage() {

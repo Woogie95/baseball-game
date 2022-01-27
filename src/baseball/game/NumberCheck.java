@@ -1,9 +1,9 @@
-package baseballgame;
+package baseball.game;
 
 import java.util.List;
 
-import static baseballgame.CenterProcess.MAX_VALUE;
-import static baseballgame.UserNumber.DEFAULT;
+import static baseball.game.CenterProcess.MAX_VALUE;
+import static baseball.game.UserNumber.DEFAULT;
 
 public class NumberCheck {
 

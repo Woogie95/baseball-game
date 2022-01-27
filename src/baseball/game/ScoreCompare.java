@@ -1,6 +1,4 @@
-package baseballgame;
-
-import static baseballgame.UserNumber.DEFAULT;
+package baseball.game;
 
 public class ScoreCompare {
 
@@ -11,22 +9,22 @@ public class ScoreCompare {
     }
 
     private void compareZeroPoint(int strike, int ball) { // 비교한다 0점
-        if (strike == DEFAULT && ball == DEFAULT) {
+        if (strike == UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printZeroScore();
         }
     }
 
     private void compareStrikeCount(int strike, int ball) { // 비교한다 스트라이크 개수
-        if (strike > DEFAULT && ball == DEFAULT) {
+        if (strike > UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printStrikeScore(strike);
 
-        } else if (strike == DEFAULT && ball > DEFAULT) {
+        } else if (strike == UserNumber.DEFAULT && ball > UserNumber.DEFAULT) {
             Output.printBallScore(ball);
         }
     }
 
     private void compareBallCount(int strike, int ball) { // 비교한다 볼 개수
-        if (strike > DEFAULT && ball > DEFAULT) {
+        if (strike > UserNumber.DEFAULT && ball > UserNumber.DEFAULT) {
             Output.printTotalScore(strike, ball);
         }
     }

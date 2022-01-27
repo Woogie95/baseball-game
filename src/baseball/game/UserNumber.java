@@ -1,9 +1,9 @@
-package baseballgame;
+package baseball.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static baseballgame.CenterProcess.MAX_VALUE;
+import static baseball.game.CenterProcess.MAX_VALUE;
 
 public class UserNumber {
 

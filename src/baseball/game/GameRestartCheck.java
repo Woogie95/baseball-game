@@ -1,4 +1,4 @@
-package baseballgame;
+package baseball.game;
 
 public class GameRestartCheck {
 
