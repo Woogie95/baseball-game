@@ -11,4 +11,5 @@ public class StartBaseballGame {
             System.out.println("정상 종료");
         }
     }
+
 }

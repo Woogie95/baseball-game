@@ -7,7 +7,7 @@ import java.util.Set;
 
 import static baseball.game.CenterProcess.MAX_VALUE;
 
-public class ComputerRandomNumber { //컴퓨터 랜던 숫자 생성 클래스
+public class ComputerRandomNumber {
 
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int CHANGE_TO_INTEGER = 1;

@@ -8,13 +8,13 @@ public class ScoreCompare {
         compareBallCount(strike, ball);
     }
 
-    private void compareZeroPoint(int strike, int ball) { // 비교한다 0점
+    private void compareZeroPoint(int strike, int ball) {
         if (strike == UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printZeroScore();
         }
     }
 
-    private void compareStrikeCount(int strike, int ball) { // 비교한다 스트라이크 개수
+    private void compareStrikeCount(int strike, int ball) {
         if (strike > UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printStrikeScore(strike);
 
@@ -23,7 +23,7 @@ public class ScoreCompare {
         }
     }
 
-    private void compareBallCount(int strike, int ball) { // 비교한다 볼 개수
+    private void compareBallCount(int strike, int ball) {
         if (strike > UserNumber.DEFAULT && ball > UserNumber.DEFAULT) {
             Output.printTotalScore(strike, ball);
         }

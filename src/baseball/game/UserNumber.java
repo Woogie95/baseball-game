@@ -7,7 +7,7 @@ import static baseball.game.CenterProcess.MAX_VALUE;
 
 public class UserNumber {
 
-    public static final int DEFAULT = 0; // DEFAULT 값 공용으로 사용하기 위해 public
+    public static final int DEFAULT = 0;
 
     public List<Integer> makeUserNumber() {
         List<Integer> userNumber = new ArrayList<>();
@@ -27,7 +27,7 @@ public class UserNumber {
             for (int i = 0; i < word.length(); i++) {
                 textArr[i] = String.valueOf(word.charAt(i));
             }
-            for (int i = 0; i < word.length(); i++) { // 문자라서 안들어온거
+            for (int i = 0; i < word.length(); i++) {
                 changeArr[i] = Integer.parseInt(textArr[i]);
             }
         } catch (IllegalArgumentException e) {
