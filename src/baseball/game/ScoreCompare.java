@@ -3,18 +3,18 @@ package baseball.game;
 public class ScoreCompare {
 
     public void compare(int strike, int ball) {
-        compareZeroPoint(strike, ball);
-        compareStrikeCount(strike, ball);
-        compareBallCount(strike, ball);
+        compareBothNoCount(strike, ball);
+        compareEitherOneCount(strike, ball);
+        compareBothHaveScore(strike, ball);
     }
 
-    private void compareZeroPoint(int strike, int ball) {
+    private void compareBothNoCount(int strike, int ball) {
         if (strike == UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printZeroScore();
         }
     }
 
-    private void compareStrikeCount(int strike, int ball) {
+    private void compareEitherOneCount(int strike, int ball) {
         if (strike > UserNumber.DEFAULT && ball == UserNumber.DEFAULT) {
             Output.printStrikeScore(strike);
 
@@ -23,7 +23,7 @@ public class ScoreCompare {
         }
     }
 
-    private void compareBallCount(int strike, int ball) {
+    private void compareBothHaveScore(int strike, int ball) {
         if (strike > UserNumber.DEFAULT && ball > UserNumber.DEFAULT) {
             Output.printTotalScore(strike, ball);
         }

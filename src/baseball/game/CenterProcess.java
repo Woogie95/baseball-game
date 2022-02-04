@@ -5,9 +5,13 @@ import java.util.List;
 public class CenterProcess {
 
     public static final int MAX_VALUE = 3;
+    private final static String CONTINUE_DECISION_NUMBER = "1";
+
 
     private boolean replay = true;
     private boolean newGame = true;
+
+    public static Input input = new Input();
 
     public void repeatBaseballGame() {
         ComputerRandomNumber computerRandomNumber = new ComputerRandomNumber();
@@ -16,7 +20,7 @@ public class CenterProcess {
             List<Integer> computerNumber = computerRandomNumber.makeComputerNumber();
             UserNumber userNumber = new UserNumber();
             while (newGame) {
-                printNotice();
+                inputNumberNotice();
                 NumberCheck numberCheck = new NumberCheck();
                 numberCheck.compareNumber(computerNumber, userNumber.makeUserNumber());
                 deliverCompareValue(numberCheck.getStrike(), numberCheck.getBall());
@@ -25,10 +29,10 @@ public class CenterProcess {
         }
     }
 
-    private void printNotice() {
-        Output.printNumberInputMessage();
-
+    private void inputNumberNotice() {
+        Output.inputNumberMessage();
     }
+
 
     private void deliverCompareValue(int strike, int ball) {
         ScoreCompare scoreCompare = new ScoreCompare();
@@ -37,12 +41,15 @@ public class CenterProcess {
     }
 
     private void restartCheck(int strike) {
-        GameRestartCheck gameRestartCheck = new GameRestartCheck();
         if (strike == MAX_VALUE) {
             Output.printGameOverMessage();
             newGame = false;
-            replay = gameRestartCheck.restartCheck();
+            replay = inputRestartCheck();
         }
+    }
+
+    private boolean inputRestartCheck() {
+        return input.inputNumber().equals(CONTINUE_DECISION_NUMBER);
     }
 
 }
