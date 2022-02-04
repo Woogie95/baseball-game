@@ -7,7 +7,6 @@ public class CenterProcess {
     public static final int MAX_VALUE = 3;
     private final static String CONTINUE_DECISION_NUMBER = "1";
 
-
     private boolean replay = true;
     private boolean newGame = true;
 

@@ -6,10 +6,10 @@ public class Input {
 
     private static final int BLANK_TEXT = 0;
     private static final int MIN_ENTER_DEFAULT_VALUE = 3;
-    private static final Scanner SCANNER = new Scanner(System.in);
     private static final int FIRST_DUPLICATE_VALUE_CHECK = 0;
     private static final int SECOND_DUPLICATE_VALUE_CHECK = 1;
     private static final int THIRD_DUPLICATE_VALUE_CHECK = 2;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public String inputNumber() {
         String word = SCANNER.nextLine();
